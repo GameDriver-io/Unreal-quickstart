@@ -12,6 +12,7 @@ THIRD_PARTY_INCLUDES_START
 #include <optional>
 #include "../../../../ThirdParty/linqcpp/include/linqcpp/linqcpp.h"
 #include <vector>
+#include <map>
 #include "XPathParserExceptions.h"
 #include "GameFramework/TouchInterface.h"
 THIRD_PARTY_INCLUDES_END
@@ -76,6 +77,13 @@ public:
 	void Add(double s) { list.push_back(s); }
 	std::vector<double> list;
 };
+class VectorList {
+public:
+	VectorList();
+	bool Contains(FVector r);
+	void Add(FVector s) { list.push_back(s); }
+	std::vector<FVector> list;
+};
 class ObjectList {
 public:
 	ObjectList();
@@ -83,6 +91,15 @@ public:
 	void Add(UObject* s) { list.push_back(s); }
 	std::vector<UObject*> list;
 };
+
+class MapIntInt {
+public:
+	MapIntInt();
+	bool ContainsKey(int k);
+	void Add(int k, int v); 
+	std::map<int,int> maps;
+};
+
 class Type {
 public:
 	Type(String a);
@@ -102,9 +119,16 @@ public:
 	FString name;
 
 };
+class StructHolder {
+public:
+	StructHolder(void* a, UScriptStruct* b) { StructPtr = a; ScriptStruct = b; };
+	void* StructPtr; //= structProperty->ContainerPtrToValuePtr<void>(obj);
+	UScriptStruct* ScriptStruct;// = structProperty->Struct;
+};
 
-					//  6		 7		 8			  9                10			11			12		13      14, 15, 16	
-#define VARIANT_LIST    UObject, AActor, StoreResult, StoreResultArgs, StringList, ObjectList, Type, FVector, FQuat, FVector2D, TouchInputControl, Hit, IntList, FloatList, DoubleList,FLinearColor, FTransform
+
+//  7		 8		 9			  10                11			12			13		14      15,		16,			 17,			18	19			20		21			22				23			24		25			26			27			28
+#define VARIANT_LIST    UObject, AActor, StoreResult, StoreResultArgs, StringList, ObjectList, Type, FVector, FQuat, FVector2D, TouchInputControl, Hit, IntList, FloatList, DoubleList,FLinearColor, FTransform,StructHolder, VectorList, MapIntInt
 template<typename... Args>
 using makePtrVariant_t = std::variant<String, int, float, bool, double, size_t, int64, std::add_pointer_t<Args>...>;
 using HPathVariant = makePtrVariant_t<VARIANT_LIST>;
@@ -165,6 +189,8 @@ public:
 	GAMEDRIVER_API void CallEx(Operation op, HNode* node, std::list<HPathVariant*>* tree);
 	std::list<HPathVariant*>* GetFirstStackElemAsIEnumObject();
 	GAMEDRIVER_API HPathVariant* GetObjectFieldOrProperty(HPathVariant *object, String fieldName);
+	GAMEDRIVER_API bool SetObjectFieldOrProperty(HPathVariant* object, String fieldName, void* v);
+	GAMEDRIVER_API bool parseFieldForBrackets(FString fieldName, FString &newstring, FString &index);
 	std::list<XPathParserException*>* exceptions;
 private:
 

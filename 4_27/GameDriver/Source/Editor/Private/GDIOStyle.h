@@ -28,7 +28,6 @@ public:
 	{
 		return StyleInstance->GetWidgetStyle<WidgetStyleType>(PropertyName, Specifier);
 	}
-
 private:
 	static TSharedRef<FSlateStyleSet> Create();
 

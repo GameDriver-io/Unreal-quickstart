@@ -22,7 +22,7 @@ class GDIOPanel : public SCompoundWidget
 	void Construct(const FArguments& InArgs);
 
 public:
-	FVector2D loadSettingsFromFile();
+
 	FText getDateTimeText() const;
 	FText getPort() const;
 	FText getMouseCoordinates() const;

@@ -47,5 +47,5 @@ private:
 	FDelegateHandle OnWorldPostInitializationHandle;
 	FDelegateHandle OnWorldCleanupHandle;
 	GDIOAgent* Agent = NULL;
-	
+	bool cleanup;
 };
