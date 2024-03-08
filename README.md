@@ -2,7 +2,7 @@
 - Added Blueprint and C++ GameDriver API
 - Improvements to the Recorder and Editor tools
 - Improved input recording/playback
-- Added access to structs and Arrays
+- Added access to struct and Array fields in objects
 
 
 ## Concept
@@ -14,7 +14,7 @@
 ## What you do next
 
 1. If it does not already exist create a "Plugins" directory inside the root of your project.
-2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_27, 5_1, ETC) and copy it in the PLugin folder.
+2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_27, 5_1, ETC) and copy it into the Plugin folder.
 3. Place a valid license (gdio.license.txt) in a folder named "GameDriver" inside the "Content" folder of your project. A trial license can be requested at gamedriver.io/trial or by contacting sales@gamedriver.io.
 4. Optionally, copy the provided `sample.gdio.unreal_agent.config.txt` to the same folder as above. Rename the file to `gdio.unreal_agent.config.txt`
 5. Open the project and click run to see the GDIO panel displaying. 
