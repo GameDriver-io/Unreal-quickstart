@@ -225,12 +225,13 @@ class Hit
 {
 public:
     Hit() {};
-    Hit(FHitResult x) {
+    /*Hit(FHitResult x) {
         Location = Vector3(x.Location);
         Normal = Vector3(x.Normal);
         //gameObject = *(ToLiteGameObject(x.GetActor(), true));
         BlockingHit = x.bBlockingHit;
     };
+    */
     /// <summary>
     /// THe HierarchyPath of the GameObject that recieved the OnCollision event
     /// </summary>

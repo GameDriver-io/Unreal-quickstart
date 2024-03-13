@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <time.h>
+#include "../../UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h"
 
 class WaitForObjectDesc
 {

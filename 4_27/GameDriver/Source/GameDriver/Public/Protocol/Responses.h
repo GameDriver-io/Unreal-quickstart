@@ -150,6 +150,7 @@ public:
     Evt_EmptyInput() {
         this->MessageType = (int)GDIOMessageType::Evt_EmptyInput;
     };
+    std::string InputPath = "";
     std::string* GetName() override { return new std::string("Evt_EmptyInput"); }
 };
 

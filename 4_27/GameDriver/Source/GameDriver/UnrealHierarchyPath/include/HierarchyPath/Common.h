@@ -22,7 +22,7 @@ typedef std::wstring String;
 #define __TEXT(quote) L##quote
 #define TO_STRING std::to_wstring
 #endif
-//#define TEXT(quote) __TEXT(quote)
+
 
 #ifndef COMMON_H
 #define COMMON_H

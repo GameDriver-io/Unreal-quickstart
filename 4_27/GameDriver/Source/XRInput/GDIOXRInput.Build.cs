@@ -80,8 +80,10 @@ public class GDIOXRInput : ModuleRules
 
         OptimizeCode = CodeOptimization.Never;
         //bPrecompile = true;
-        //PrecompileForTargets = PrecompileTargetsType.Any;
-         	bUsePrecompiled = true;	
+        ////PrecompileForTargets = PrecompileTargetsType.Any;
+bUsePrecompiled = true;
+
+        // 	bUsePrecompiled = true;	
 								
       //bUseRTTI = true;
 

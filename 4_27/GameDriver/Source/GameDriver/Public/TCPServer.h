@@ -62,7 +62,7 @@ public:
 protected:
 
 private:	
-	float delay = 0.2;
+	float delay = 0.0;
 	void InitializeDefaults();
 
 	TQueue<class FSocket*, EQueueMode::Mpsc> PendingClients;

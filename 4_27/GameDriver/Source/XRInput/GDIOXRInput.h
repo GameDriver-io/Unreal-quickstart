@@ -46,7 +46,8 @@ enum InputActionState {
 	IDLE,
 	PRESSED,
 	RELEASED,
-	MOVED
+	MOVED,
+	REPEAT
 };
 
 
@@ -55,6 +56,46 @@ struct InputValue {
 	FVector Value;
 	EInputActionValueType Type;
 	UInputAction *Action;
+};
+
+
+class GDIOAgent;
+
+/** Input device to simulate input */
+class FBasicStateManagement : public IInputDevice, public TSharedFromThis<FBasicStateManagement>
+{
+public:
+	GDIOXRINPUT_API FBasicStateManagement()
+	{ };
+	// IInputDevice overrides
+	GDIOXRINPUT_API void Tick(float DeltaTime) override;
+	GDIOXRINPUT_API void SendControllerEvents() override;
+
+	GDIOXRINPUT_API void ProcessInputFloat(FKey ip, float value, APlayerController* pc);
+	GDIOXRINPUT_API void SetValueForKey(FKey ip, float value, EInputEvent state);
+	GDIOXRINPUT_API void ProcessInputVector2D(FKey ip, FVector2D* value, APlayerController* pc);
+	GDIOXRINPUT_API void ProcessInputVector3D(FKey ip, FVector* value, APlayerController* pc);
+#if ENGINE_MAJOR_VERSION == 4
+	static  const UInputAction* findAction(FString needle);
+#else
+	static  TObjectPtr<const UInputAction>  findAction(FString needle);
+#endif
+
+#if ENGINE_MAJOR_VERSION == 4
+	TMap<FKey, const UInputAction*> mappings;
+#else
+	TMap<FKey, TObjectPtr<const UInputAction>> mappings;
+#endif
+
+private:
+	TMap <FKey, InputValue> keyStates;
+
+	// Inherited via IInputDevice
+	GDIOXRINPUT_API void SetMessageHandler(const TSharedRef<FGenericApplicationMessageHandler>& InMessageHandler) override;
+	GDIOXRINPUT_API bool Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar) override;
+	GDIOXRINPUT_API void SetChannelValue(int32 ControllerId, FForceFeedbackChannelType ChannelType, float Value) override;
+	GDIOXRINPUT_API void SetChannelValues(int32 ControllerId, const FForceFeedbackValues& values) override;
+	APlayerController* PlayerController = nullptr;
 };
 
 class GDIOXRInput : public IInputDevice,  
@@ -66,22 +107,27 @@ class GDIOXRInput : public IInputDevice,
 		//friend class FOculusHandTracking;
 
 	public:
-		GDIOXRINPUT_API GDIOXRInput(FGdioHMD* hmd) { HMD = hmd; }
+		GDIOXRINPUT_API GDIOXRInput(FGdioHMD* hmd) {
+			HMD = hmd; 
+			keyStates	= new FBasicStateManagement();
+		}
+		
+		// Inherited via IInputDevice
+		GDIOXRINPUT_API void Tick(float DeltaTime) override;
+		GDIOXRINPUT_API void SendControllerEvents() override;
+
 		GDIOXRINPUT_API void setHMD(FGdioHMD* hmd) { HMD = hmd; }
 		GDIOXRINPUT_API void Reset();
+		GDIOXRINPUT_API void ProcessInputFloat(FKey ip, float value, APlayerController* pc);
+		GDIOXRINPUT_API void SetValueForKey(FKey ip, float value, EInputEvent state);
+		GDIOXRINPUT_API void ProcessInputVector2D(FKey ip, FVector2D* value, APlayerController* pc);
+		GDIOXRINPUT_API void ProcessInputVector3D(FKey ip, FVector* value, APlayerController* pc);
 		//GDIOXRInput(GDIOXRInputPlugin* InPlugin) : ThePlugin(InPlugin) { }
 		/** Constructor that takes an initial message handler that will receive motion controller events */
 		//GDIOXRInput(const TSharedRef< FGenericApplicationMessageHandler >& InMessageHandler);
-		GDIOXRINPUT_API void ProcessInputFloat(FKey ip, float value, APlayerController* pc); 
-		GDIOXRINPUT_API void SetValueForKey(FKey ip, float value);
-		GDIOXRINPUT_API void ProcessInputVector2D(FKey ip, FVector2D *value, APlayerController* pc);
-		 GDIOXRINPUT_API void ProcessInputVector3D(FKey ip, FVector *value, APlayerController* pc);
+
 		//GDIOXRINPUT_API void SetMessageHandler(const TSharedRef< FGenericApplicationMessageHandler >& InMessageHandler) override;
-#if ENGINE_MAJOR_VERSION == 4
-		 const UInputAction*  findAction(FString needle);
-#else
-		 TObjectPtr<const UInputAction>  findAction(FString needle);
-#endif
+
 		/** Clean everything up */
 		virtual ~GDIOXRInput();
 
@@ -90,9 +136,7 @@ class GDIOXRInput : public IInputDevice,
 		/** Loads any settings from the config folder that we need */
 		static void LoadConfig();
 
-		// IInputDevice overrides
-		virtual void Tick(float DeltaTime) override;
-		virtual void SendControllerEvents() override;
+
 		
 		virtual void SetMessageHandler(const TSharedRef< FGenericApplicationMessageHandler >& InMessageHandler) override;
 		virtual bool Exec(UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar) override;
@@ -127,8 +171,11 @@ class GDIOXRInput : public IInputDevice,
 		uint32 GetNumberOfTouchControllers() const;
 		uint32 GetNumberOfHandControllers() const;
 		*/
+
+		FBasicStateManagement* keyStates;
 	private:
-		TMap <FKey, InputValue> keyStates;
+
+		//TMap <FKey, InputValue> keyStates;
 		/** Applies force feedback settings to the controller */
 		//void UpdateForceFeedback(const FOculusControllerPair& ControllerPair, const EControllerHand Hand);
 
@@ -138,7 +185,7 @@ class GDIOXRInput : public IInputDevice,
 		
 
 	private:
-		APlayerController* PlayerController = nullptr;
+		//APlayerController* PlayerController = nullptr;
 		FGdioHMD* HMD = nullptr;
 	//	void* OVRPluginHandle;
 
@@ -169,7 +216,9 @@ class GDIOXRInput : public IInputDevice,
 		TMap<const uint8*, TSharedPtr<TArray<uint8>>> ResampledRawDataCache;
 
 		FGenericApplicationMessageHandler MessageHandler;
-	};
+
+
+};
 
 	
 //} // namespace 

@@ -66,9 +66,9 @@ class FGdioHMD :
 {
 public:
 #if ENGINE_MAJOR_VERSION == 4
-	void	ProcessSimKey(FKey ip, EInputEvent e, APlayerController* pc);
+	static bool	ProcessSimKey(FKey ip, EInputEvent e, APlayerController* pc);
 #else
-	void ProcessSimKey(FInputKeyParams* ip, APlayerController* pc);
+	static bool ProcessSimKey(FInputKeyParams* ip, APlayerController* pc);
 #endif
 	void ProcessInputFloat(FKey ip, float value, APlayerController* pc);
 	void ProcessInputVector2D(FKey ip, FVector2D* value, APlayerController* pc);
@@ -218,7 +218,7 @@ public:
 	void updateLocationAndOrientation(FString key, FVector loc, FQuat orient, int type);
 	int GetMotionControllerCount();
 	  GDIOXRInput* GetSimulatedInput() { return SimulatedInput; };
-	 void SetValueForKey(FKey ip, float value);
+	 void SetValueForKey(FKey ip, float value, EInputEvent state);
 
 private:
 
@@ -241,5 +241,5 @@ private:
 	void GetHMDOrientation(FQuat& CurrentOrientation);
 };
 
-FGdioHMD* gdioHMD = NULL;
+//\extern FGdioHMD* gdioHMD = NULL;
 

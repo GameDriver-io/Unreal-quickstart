@@ -13,13 +13,15 @@ public class HPathDebugger : ModuleRules {
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
        // bForceUnityBuild = false;
-         	bUsePrecompiled = true;
+        // 	bUsePrecompiled = true;
 
         OptimizeCode = CodeOptimization.Never;
         
 
         //bPrecompile = true;
-        //PrecompileForTargets = PrecompileTargetsType.Any;
+        ////PrecompileForTargets = PrecompileTargetsType.Any;
+bUsePrecompiled = true;
+
 
         PublicIncludePaths.AddRange(new string[] { Path.Combine(ModuleDirectory, "Public") });
 

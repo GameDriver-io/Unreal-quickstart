@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-bool ValidateLicense(std::string filename, int& daysLeft);
+GAMEDRIVER_API bool ValidateLicense(std::string filename, int& daysLeft, std::string& licenseId);
 
 namespace GDIOUtilities
 {

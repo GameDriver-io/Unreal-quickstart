@@ -1,5 +1,5 @@
 #pragma once
-#include <GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h>
+//#include <GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h>
 #include <TCPServer.h>
 #include "Protocol/ProtocolMessage.h"
 #include "ChannelQueue.h"
@@ -9,8 +9,10 @@
 
 #include "CoreMinimal.h"
 #include "GDIOGUI.h"
-
-
+#include "printInterface.h"
+#include <GDIOInput.h>
+#include <XRInput/GDIOXRInput.h>
+class XPathParserException;
 class GDIOAgent {
 
 public:
@@ -18,11 +20,8 @@ public:
 	GDIOAgent(ChannelQueue<ProtocolMessage*> *channel, UWorld* W);
 	~GDIOAgent();
 
-	double GetLastFPS()
-	{
+	double GetLastFPS();
 
-		return 1.0f / GEngine->GetWorld()->DeltaTimeSeconds;
-	};
 	void ChangeCacheConfig(bool value);
 	void ProcessQueue();
 	void Tick(float DeltaSeconds);
@@ -36,14 +35,19 @@ public:
 	std::list<XPathParserException*>* exceptions;
 	//TSharedRef<GDIOPanel> panel;
 	bool noPanel = true;
-	//remove whole ifelse below possibly.
+	bool licenceValid = false;
+		//The IInputProcessor
 #if ENGINE_MAJOR_VERSION == 4
-	//SharedPointerInternals::FRawPtrProxy< FInput > inputProcessor = NULL;
+	SharedPointerInternals::FRawPtrProxy< FGDIOInput > inputProcessor = NULL;
 #else
-	//TSharedPtr< class FInput > inputProcessor = NULL;
+	TSharedPtr<  FGDIOInput > inputProcessor = NULL;
 #endif
-private:
+	internalRecording* recording = NULL;
 
+
+	TSharedPtr<FBasicStateManagement> basicInput = NULL;
+
+private:
     // internal static Dictionary<string, object> GDIO_CONFIG = new Dictionary<string, object>(); use unreal settings. 
 	// Inherited via FRunnable
 	//virtual uint32 Run() override;

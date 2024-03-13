@@ -39,5 +39,7 @@ namespace MessageHandlers
 	bool GetPropertyList(GDIOAgent* agent, ProtocolMessage pm);
 	bool GetMethodList(GDIOAgent* agent, ProtocolMessage pm);
 	bool HandleBadLicense(GDIOAgent* agent, ProtocolMessage pm);
+	bool StartRecording(GDIOAgent* agent, ProtocolMessage pm);
+	bool StopRecording(GDIOAgent* agent, ProtocolMessage pm);
 }
 

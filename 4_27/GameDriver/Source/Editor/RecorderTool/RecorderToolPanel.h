@@ -21,7 +21,9 @@
 #include "Blueprint/WidgetTree.h"
 #include "GenericPlatform/GenericPlatformProcess.h"
 
-class RecorderToolPanel : public SCompoundWidget
+#include "printInterface.h"
+
+class RecorderToolPanel : public SCompoundWidget, public IprintInterface
 {
 
 	SLATE_BEGIN_ARGS(RecorderToolPanel)
@@ -51,13 +53,18 @@ public:
 	FReply WaitForObject();
 	FReply ClickObject();
 	void SetFPS(ECheckBoxState);
-
+	void SetMouseMove(ECheckBoxState);
 	//void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
 	FText GetRecordTooltip() const;
-	void AddOutput(FString newline, int specialCode = 0, FString key = "");
-	static FString GetHPath(UObject* obj, FString* CurrentItem);
-	static UObject* GetAttachParentUObject(UObject* actor);
-	static TArray<FString> GetObjectTags(UObject* obj);
+	
+	//functions defined in interface
+	 void AddOutput(FString newline, int specialCode = 0, FString key = "") override;
+	 void AddWaitOutput(int time) override;
+	 bool GetFPS() override{ return useFPS; }
+	 bool GetMouseMove() override { return useMouseMove; }
+	 //static FString GetHPath(UObject* obj, FString* CurrentItem) override;
+	//static UObject* GetAttachParentUObject(UObject* actor);
+	//static TArray<FString> GetObjectTags(UObject* obj);
 	TSharedRef<SWidget> MakeWidgetForOption(TSharedPtr<FString> InOption)
 	{
 		return SNew(STextBlock).Text(FText::FromString(*InOption));
@@ -82,13 +89,14 @@ public:
 
 	TSharedPtr<FString> CurrentItem;
 	TArray<TSharedPtr<FString>> Options;
-	bool GetFPS() { return useFPS; }
+
 	bool IsRecording() { return recording; }
 
 	void OnBrowseWorld(UWorld* InWorld);
 protected:
 	bool recording;
 	bool useFPS;
+	bool useMouseMove;
 	TWeakPtr<RecorderTool> tool;
 
 	TArray<TSharedPtr<FString>> SourceHPathComboList;

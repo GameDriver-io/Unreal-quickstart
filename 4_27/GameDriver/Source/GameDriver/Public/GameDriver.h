@@ -11,8 +11,7 @@
 #include <GDIOAgent.h>
 #include "ChannelQueue.h"
 #include "Protocol/ProtocolMessage.h"
-
-
+#include "Engine/World.h"
 //extern struct guiMemory;
 
 #if PLATFORM_ANDROID || PLATFORM_IOS || PLATFORM_MAC || PLATFORM_SWITCH
@@ -21,10 +20,8 @@
 #define CONVERT_STRING(X,Y) std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> conv; Y = conv.to_bytes(X);
 #endif
 
-#if PLATFORM_ANDROID || PLATFORM_MAC || PLATFORM_LINUX  || PLATFORM_SWITCH
-	#define MAKETIME(X) clock_getres(CLOCK_REALTIME, &X);
-#elif PLATFORM_IOS
-	#define MAKETIME(X) clock_getres(CLOCK_THREAD_CPUTIME_ID, &X);
+#if PLATFORM_ANDROID || PLATFORM_MAC || PLATFORM_LINUX  || PLATFORM_SWITCH || PLATFORM_IOS
+	#define MAKETIME(X) clock_gettime(CLOCK_REALTIME, &X);
 #else
 	#define MAKETIME(X) std::timespec_get(&X, TIME_UTC);
 #endif
@@ -41,7 +38,7 @@ public:
 
 	static ChannelQueue<ProtocolMessage*> InMessageQueue;
 	static ChannelQueue<ProtocolMessage*> OutMessageQueue;
-
+	GDIOAgent* getAgent();
 	//virtual void BeginPlay() override;
 private:
 	/** Handle to the test dll we will load */
@@ -50,5 +47,5 @@ private:
 	FDelegateHandle OnWorldPostInitializationHandle;
 	FDelegateHandle OnWorldCleanupHandle;
 	GDIOAgent* Agent = NULL;
-	
+	bool cleanup;
 };

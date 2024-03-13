@@ -86,8 +86,10 @@ public class GameDriver : ModuleRules
 
         OptimizeCode = CodeOptimization.Never;
         //bPrecompile = true;
-        //PrecompileForTargets = PrecompileTargetsType.Any;
-         	bUsePrecompiled = true;
+        ////PrecompileForTargets = PrecompileTargetsType.Any;
+bUsePrecompiled = true;
+
+        // 	bUsePrecompiled = true;
 
         Type = ModuleType.CPlusPlus;
 		PublicIncludePaths.Add(Path.Combine(Path.Combine(ModuleDirectory, ".."), "ThirdParty"));

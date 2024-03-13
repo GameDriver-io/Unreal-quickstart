@@ -1,8 +1,9 @@
-## v2.0 
-- Rebuilt Plugins in C++
+## v2.1 
+- Added Blueprint and C++ GameDriver API
 - Improvements to the Recorder and Editor tools
-- Support for Windows/Mac/Android/iOS 
-- Added support for Unreal Engine 5.3
+- Improved input recording/playback
+- Added access to struct and Array fields in objects
+
 
 ## Concept
 
@@ -12,8 +13,8 @@
 
 ## What you do next
 
-1. Create an empty "unrealPlugin" folder inside the "Plugins" directory of your project.
-2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_27, 5_1, ETC) and copy it in the unrealPlugin folder you just created.
+1. If it does not already exist create a "Plugins" directory inside the root of your project.
+2. Grab the GameDriver folder from inside the folder corresponding to your unreal engine version (4_27, 5_1, ETC) and copy it into the Plugin folder.
 3. Place a valid license (gdio.license.txt) in a folder named "GameDriver" inside the "Content" folder of your project. A trial license can be requested at gamedriver.io/trial or by contacting sales@gamedriver.io.
 4. Optionally, copy the provided `sample.gdio.unreal_agent.config.txt` to the same folder as above. Rename the file to `gdio.unreal_agent.config.txt`
 5. Open the project and click run to see the GDIO panel displaying. 
@@ -22,7 +23,7 @@
 ## Common issues
 
 1. In order to simulate mouse clicks in the editor you will need to unset the "High DPI Support" flag in the editor preferences.
-![[EditorPreferences.png]]
+![[img/EditorPreferences.png]]
 2. You may need to build clean for your project at some point. Doing so will delete the precompiled binaries for the plugin. To rectify this recopy the "Binary" and " Intermediate" from the zip into your project's Plugin folder after making clean (or recopy the entire Plugin folder - if you prefer).
 3. To deploy on Mobile you'll need to add the GameDriver folder inside of Content to the list of "Additional non-Asset directories to Package".
 
@@ -32,9 +33,8 @@ Your final Project will look like the following:
 
 ```dirtree
 SomeProjectPath/
-└─ Plugins/
-   └─ unrealPlugin		
-	└─GameDriver				<----- Place the GameDriver folder here 
+└─ Plugins/	
+   └─GameDriver										<----- Place the GameDriver folder here 
 └─ Content
    └─ GameDriver
 	└─ gdio.license				<----- Place your license here

@@ -295,7 +295,8 @@ public:
     float ChangeValue = 0.0f;
     Vector2 *vector2Val = NULL;
     Vector3 *vector3Val = NULL;
-    Quaternion *quaternionVal = NULL;
+//    Quaternion *quaternionVal = NULL;
+    std::vector<Quaternion*>* quaternionList = NULL;
     std::string* GetName() override {
         return new std::string("InputManagerStateRequest");
 
