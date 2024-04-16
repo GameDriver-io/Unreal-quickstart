@@ -14,8 +14,7 @@
 	"CanContainContent": true,
 	"Installed": true,
 	"SupportedTargetPlatforms": [
-		"Win64",
-		"Android","Mac","Ios"
+		"Win64"
 	],
 	"Modules": [
 		{

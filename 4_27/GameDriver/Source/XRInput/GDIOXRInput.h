@@ -16,7 +16,7 @@
 #include "IInputDeviceModule.h"
 #include "InputActionValue.h"
 #include "GameFramework/PlayerController.h"
-//#include "InputAction.h"
+#include "InputAction.h"
 class FTCPServer;
 
 struct  guiMemory {
@@ -34,7 +34,7 @@ struct  guiMemory {
 
 
 class FGdioHMD;
-class UInputAction;
+//class UInputAction;
 //namespace GDIOXRInput
 //{
 

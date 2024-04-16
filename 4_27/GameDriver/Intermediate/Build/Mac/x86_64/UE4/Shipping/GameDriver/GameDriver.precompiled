@@ -1,8 +1,0 @@
-{
-	"OutputFiles": [
-		"Module.GameDriver.1_of_2.cpp.o",
-		"Module.GameDriver.2_of_2.cpp.o",
-		"Module.GameDriver.gen.cpp.o",
-		"compact25519.c.o"
-	]
-}
