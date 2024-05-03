@@ -21,7 +21,7 @@ public:
 	~GDIOAgent();
 
 	double GetLastFPS();
-
+	void ChangeWorld(UWorld* w);
 	void ChangeCacheConfig(bool value);
 	void ProcessQueue();
 	void Tick(float DeltaSeconds);
@@ -46,7 +46,7 @@ public:
 
 
 	TSharedPtr<FBasicStateManagement> basicInput = NULL;
-
+	bool usingWebSockets = false;
 private:
     // internal static Dictionary<string, object> GDIO_CONFIG = new Dictionary<string, object>(); use unreal settings. 
 	// Inherited via FRunnable

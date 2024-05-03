@@ -16,7 +16,8 @@
 #include "IInputDeviceModule.h"
 #include "InputActionValue.h"
 #include "GameFramework/PlayerController.h"
-//#include "InputAction.h"
+#include "InputAction.h"
+
 class FTCPServer;
 
 struct  guiMemory {
@@ -34,7 +35,7 @@ struct  guiMemory {
 
 
 class FGdioHMD;
-class UInputAction;
+//class UInputAction;
 //namespace GDIOXRInput
 //{
 
@@ -70,7 +71,7 @@ public:
 	// IInputDevice overrides
 	GDIOXRINPUT_API void Tick(float DeltaTime) override;
 	GDIOXRINPUT_API void SendControllerEvents() override;
-
+	GDIOXRINPUT_API void SetController(APlayerController* PlayerController);
 	GDIOXRINPUT_API void ProcessInputFloat(FKey ip, float value, APlayerController* pc);
 	GDIOXRINPUT_API void SetValueForKey(FKey ip, float value, EInputEvent state);
 	GDIOXRINPUT_API void ProcessInputVector2D(FKey ip, FVector2D* value, APlayerController* pc);
@@ -118,6 +119,7 @@ class GDIOXRInput : public IInputDevice,
 
 		GDIOXRINPUT_API void setHMD(FGdioHMD* hmd) { HMD = hmd; }
 		GDIOXRINPUT_API void Reset();
+		GDIOXRINPUT_API void SetController(APlayerController* pc);
 		GDIOXRINPUT_API void ProcessInputFloat(FKey ip, float value, APlayerController* pc);
 		GDIOXRINPUT_API void SetValueForKey(FKey ip, float value, EInputEvent state);
 		GDIOXRINPUT_API void ProcessInputVector2D(FKey ip, FVector2D* value, APlayerController* pc);

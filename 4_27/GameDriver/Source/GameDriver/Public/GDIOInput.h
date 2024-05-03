@@ -164,7 +164,7 @@ public:
 
 
 protected:
-
+	UWorld *World;
 	bool everoutputVR = false;
 	bool setupComplete = false;
 	FViewport* activeViewport = NULL;

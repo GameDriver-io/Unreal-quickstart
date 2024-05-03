@@ -37,7 +37,7 @@ public class GameDriver : ModuleRules
 			new string[]
 			{
 				"Core",
-				"Projects", "UMG","InputDevice","GDIOXRInput","HeadMountedDisplay",
+				"Projects", "UMG","InputDevice","GDIOXRInput","HeadMountedDisplay","WebSockets"
 			}
             );
         if (Target.Version.MajorVersion == 5 && Target.Version.MinorVersion >= 3)

@@ -15,6 +15,7 @@ namespace GameDriver {
 
 #include <GDIOTypes.h>
 class StructHolder;
+class MapPrimPrim;
 bool ConvertWorldLocationToScreenLocation(APlayerController* PlayerController, FVector& tempV, FVector2D& outputSpot);
 bool UObjectGetPosition(UObject* obj, FVector& location);
 TArray<UActorComponent*>* GetAllComponents(UObject* Actor);
@@ -52,3 +53,9 @@ bool SetTransformValueForField(UObject* obj, FString fieldToFind, FTransform* va
 bool SetTransformValueForProperty(FProperty* prop, void* obj, FTransform* value);
 bool setArrayElement(FProperty* Property, FArrayProperty* arrayProperty, UObject* obj, int index, void* value);
 bool setMapElement(FProperty* Property, FMapProperty* mapProperty, UObject* obj, int index, void* value);
+template <typename KeyType, typename ValueType>
+void* processMapPropertyIntoMapPrim(FMapProperty* mapProperty, UObject* obj);
+template < typename ValueType>
+void* processMapPropertyIntoMapPrimStringKey(FMapProperty* mapProperty, UObject* obj);
+template <typename KeyType>
+void* processMapPropertyIntoMapPrimStringValue(FMapProperty* mapProperty, UObject* obj);

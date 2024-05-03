@@ -6,4 +6,5 @@
 	<infobox enabled="true" x="400.0" y="100.0" />
 	<listening port="15505" />
 	<xrthresholds frames="1" />
+	<webSockets enabled="false" port="7072" url="127.0.0.1"/>
 </config>

@@ -150,7 +150,8 @@ enum class FUNCTIONTYPE {
     SUM=13,
     TTRUE=14,
     TYPE=15,
-    UNKNOWN=16
+    ITEM = 16,
+    UNKNOWN=17
 };
 static FUNCTIONTYPE IntForFunction(String s) {
     if (s.compare(TEXT("contains"))==0) {
@@ -200,6 +201,9 @@ static FUNCTIONTYPE IntForFunction(String s) {
     }
     if (s.compare(TEXT("type")) == 0) {
         return FUNCTIONTYPE::TYPE;
+    }
+    if (s.compare(TEXT("item")) == 0) {
+        return FUNCTIONTYPE::ITEM;
     }
     return FUNCTIONTYPE::UNKNOWN;
 }

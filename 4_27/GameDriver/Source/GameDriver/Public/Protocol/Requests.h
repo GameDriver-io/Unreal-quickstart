@@ -14,14 +14,15 @@ class HandshakeRequest :
     public IGDIOMessage
 {    
 public:
-    HandshakeRequest() {};
+    HandshakeRequest() {
+        this->MessageType = (int)GDIOMessageType::HandshakeRequest;
+    };
     HandshakeRequest(std::string protocolVersion, std::string clientUID = "");
-    std::string ProtocolVersion = "";
+    std::string ProtocolVersion = "2024.04.30";//"2.03.11.2024";
     std::string ClientUID;
     uint64 channel = 0;
     bool Recording = false;
    
-
     std::string* GetName() override { return new std::string("HandshakeRequest"); }
     MSGPACK_DEFINE_MAP(ProtocolVersion,ClientUID,Recording);
 };
@@ -286,7 +287,7 @@ public:
 };
 
 
-class InputManagerStateRequest : public IGDIOMessage
+class InputManagerStateRequest : public IGDIOMessage 
 {
 public:
     std::string IdName = "";

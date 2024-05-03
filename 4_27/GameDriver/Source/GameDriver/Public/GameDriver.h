@@ -3,8 +3,7 @@
 #pragma once
 
 #include "Modules/ModuleManager.h"
-#include "TCPServer.h"
-
+//#include "TCPServer.h"
 
 //THIRD_PARTY_INCLUDES_START
 #include "../../ThirdParty/msgpack.hpp"
@@ -12,6 +11,7 @@
 #include "ChannelQueue.h"
 #include "Protocol/ProtocolMessage.h"
 #include "Engine/World.h"
+
 //extern struct guiMemory;
 
 #if PLATFORM_ANDROID || PLATFORM_IOS || PLATFORM_MAC || PLATFORM_SWITCH
@@ -28,14 +28,15 @@
 class FGameDriverModule : public IModuleInterface
 {
 public:
-
+	void TickWebSocket();
 	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 	void OnWorldPostInitialization(UWorld* World, const UWorld::InitializationValues InitializationValues);
 	void OnWorldCleanup(UWorld* World, bool SessionEnded, bool CleanupResources);
 	void TickWorld(UWorld* World, ELevelTick TickType, float DeltaSeconds);
-
+	void HandleWebSocketData(const void* Data, SIZE_T Length, SIZE_T BytesRemaining);
+	
 	static ChannelQueue<ProtocolMessage*> InMessageQueue;
 	static ChannelQueue<ProtocolMessage*> OutMessageQueue;
 	GDIOAgent* getAgent();
@@ -48,4 +49,6 @@ private:
 	FDelegateHandle OnWorldCleanupHandle;
 	GDIOAgent* Agent = NULL;
 	bool cleanup;
+	bool m_UseWebSockets = false;
+	bool WebsocketInitialized = false;
 };

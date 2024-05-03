@@ -17,16 +17,18 @@
 #include "HAL/Runnable.h"
 
 #include <map>
-//#include "NetworkFileServer.h"
 
+#include "WebSocketsModule.h"
+#include "IWebSocket.h"
 
 #define DEFAULT_ENDPOINT FIPv4Endpoint(FIPv4Address(0, 0, 0, 0), 15505)
 
+void pack_uint32_t(uint8* ptr, uint32_t value);
 
 class FTCPServer :  public FRunnable
 {
 public:	
-	FTCPServer();
+	FTCPServer(bool websockets = false, FString weburl = "", bool ever = false);
 	~FTCPServer();
 
 	//	struct FAfterTickFunction ExtraLateActorTick;
@@ -35,8 +37,7 @@ public:
 	//virtual void Tick(float DeltaTime)  override;
 	//bool RecvMessage(FSocket *Socket, uint32 DataSize, FString& Message);
 	bool HandleListenerConnectionAccepted(class FSocket *ClientSocket, const FIPv4Endpoint& ClientEndpoint);
-
-
+	bool everConnected = false;
 	virtual bool Init() override;
 	virtual uint32 Run() override;
 
@@ -58,7 +59,9 @@ public:
 	//void HandleIncomingSocket(FSocket* IncomingConnection);
 	//static TQueue<FString> ImportQueue;
 
-
+	void TickSocket(UWorld* World, ELevelTick TickType, float DeltaSeconds);
+	void HandleWebSocketData(const void* Data, SIZE_T Length, SIZE_T BytesRemaining);
+	void OnWebSocketConnect();
 protected:
 
 private:	
@@ -86,6 +89,14 @@ private:
 
 	std::map<std::string, FSocket*> ClientMap;
 	std::map<std::string, int> ClientMapTimeouts;
+
+	//websockets
+	int m_ListeningPort = 7071;
+	bool m_UseWebSockets = false;
+	FString m_WebSocketsURL = "ws://localhost:80/";
+	TSharedPtr<IWebSocket> WebSocket;
+	bool usingWebSockets = false;;
+
 };
 
 

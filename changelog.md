@@ -1,6 +1,13 @@
 # Changelog for GameDriver for Unity releases
 
-## 10-22-2023 Version 2023.10
+## 05-01-2024 Version 2024.1
+- Added websockets for console support
+- Allow Gamedriver to make calls while game is in editor mode (not running)
+- Added TMap support for primary types. (int/float/string keys)   
+- Improved in-editor license display
+- Support testing while Unreal engine is paused
+- Miscelaneous bug fixes and stability improvements. 
+## 03-13-2024 Version 2024.01
 - *Added blueprint Api* for Gamedriver 
  - Simulate Touch in blueprints
  - Use HierarchyPath to access objects
