@@ -8,6 +8,10 @@ http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_PREDEF_ENDIAN_H
 #define BOOST_PREDEF_ENDIAN_H
 
+#ifndef PLATFORM_PS5
+#define PLATFORM_PS5 (0)
+#endif
+
 #include <boost/predef/version_number.h>
 #include <boost/predef/make.h>
 #include <boost/predef/library/c/gnu.h>
@@ -60,8 +64,12 @@ information and acquired knowledge:
 #       if BOOST_OS_MACOS
 #           include <machine/endian.h>
 #       else
-#           if BOOST_OS_BSD
-#               include <sys/endian.h>
+#           if PLATFORM_PS5
+#                   include <machine/endian.h>
+#           else       
+#               if BOOST_OS_BSD
+#                   include <sys/endian.h>
+#               endif
 #           endif
 #       endif
 #   endif

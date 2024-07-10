@@ -1,5 +1,7 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <string>
+#include "HAL/Platform.h"
 
 GAMEDRIVER_API bool ValidateLicense(std::string filename, int& daysLeft, std::string& licenseId);
 

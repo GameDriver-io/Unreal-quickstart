@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright GameDriver, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -9,24 +9,21 @@
 
 
 #include "XRTrackingSystemBase.h"
-//#include "SceneViewExtension.h"
+
 #include "Components/InputComponent.h"
 #include "IMotionTrackingSystemManagement.h"
 #include "GenericPlatform/IInputInterface.h"//for haptic
 
 #include <MotionControllerComponent.h>
-//#include "Runtime\Launch\Resources\Version.h"
+
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputSubsystemInterface.h"
 #include "EnhancedPlayerInput.h"
 #include "IHeadMountedDisplay.h"
 #include "InputMappingContext.h"
 
-//#include <XRInput/GDIOXRInput.h>
 #include <XRInput/GDIOXRInput.h>
-//class GDIOXRInput;
-//struct guiMemory;
-//extern guiMemory guiMem;
+
 class APlayerController;
 class FSceneView;
 class FSceneViewFamily;

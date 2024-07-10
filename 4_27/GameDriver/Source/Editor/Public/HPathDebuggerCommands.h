@@ -1,5 +1,6 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
-//#include "SlateBasics.h"
+
 #include "EditorStyleSet.h"
 
 

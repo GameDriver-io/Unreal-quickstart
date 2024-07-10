@@ -1,9 +1,10 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <map>
 #include <string>
 #include "InputCoreTypes.h"
 #include "GameFramework/PlayerController.h"
-//#include "GDIOAgent.h"
+
 enum class KeyTypeEnum
 {
 	Key = 0,

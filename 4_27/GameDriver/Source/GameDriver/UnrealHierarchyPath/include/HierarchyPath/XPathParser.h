@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "Common.h"
 #include "IXPathBuilder.h"
@@ -5,8 +6,7 @@
 #include "XPathScanner.h"
 #include <stack>
 
-template <typename Node>
-class XPathParser
+template <typename Node> class XPathParser
 {
 public:
 	XPathParser();
@@ -39,4 +39,3 @@ private:
 	IXPathBuilder<Node> * builder;
 	std::stack<int> posInfo;
 };
-

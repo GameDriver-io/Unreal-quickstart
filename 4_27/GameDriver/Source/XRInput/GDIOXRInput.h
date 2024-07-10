@@ -1,14 +1,12 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright GameDriver, Inc. All Rights Reserved.
 
 #pragma once
-//#include "GenericPlatform/IInputInterface.h"
 
 #include <InputCoreTypes.h>
 #include "Runtime/Launch/Resources/Version.h"
 
 #include "XRMotionControllerBase.h"
 
-//#include "IHapticDevice.h"
 #include "IInputDevice.h"
 #include "IInputDeviceModule.h"
 #include "IXRTrackingSystem.h"
@@ -17,6 +15,8 @@
 #include "InputActionValue.h"
 #include "GameFramework/PlayerController.h"
 #include "InputAction.h"
+
+GDIOXRINPUT_API DECLARE_LOG_CATEGORY_EXTERN(LogGameDriverXR, Log, All);
 
 class FTCPServer;
 
@@ -35,13 +35,6 @@ struct  guiMemory {
 
 
 class FGdioHMD;
-//class UInputAction;
-//namespace GDIOXRInput
-//{
-
-	//-------------------------------------------------------------------------------------------------
-	// FOculusInput
-	//-------------------------------------------------------------------------------------------------
 
 enum InputActionState {
 	IDLE,
@@ -68,6 +61,7 @@ class FBasicStateManagement : public IInputDevice, public TSharedFromThis<FBasic
 public:
 	GDIOXRINPUT_API FBasicStateManagement()
 	{ };
+	GDIOXRINPUT_API ~FBasicStateManagement();
 	// IInputDevice overrides
 	GDIOXRINPUT_API void Tick(float DeltaTime) override;
 	GDIOXRINPUT_API void SendControllerEvents() override;

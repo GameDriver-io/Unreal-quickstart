@@ -1,12 +1,15 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "Common.h"
-#include "HNode.h"
+///#include "HNode.h"
 #include "Instruction.h"
 #include <stack>
 #include <variant>
 #include <type_traits>
 	#include "GameFramework/TouchInterface.h"
-//#include "UnrealEngine.h"
+
+#include "HierarchyPathHelper.h"
+
 #include "GDIOTypes.h"
 THIRD_PARTY_INCLUDES_START
 #include <optional>
@@ -16,22 +19,8 @@ THIRD_PARTY_INCLUDES_START
 #include "XPathParserExceptions.h"
 #include "GameFramework/TouchInterface.h"
 THIRD_PARTY_INCLUDES_END
-/*
-class UObjectBase
-{
 
-};
-
-class UObject : UObjectBase
-{
-public:
-	UObject() { Id = _id++; }
-private:
-	inline static int _id = 0;
-protected:
-	int Id;
-};
-*/
+class HNode;
 class StoreResultArgs
 {
 public:
@@ -92,16 +81,6 @@ public:
 	std::vector<UObject*> list;
 };
 
-/*
-class MapIntInt {
-public:
-	MapIntInt();
-	bool ContainsKey(int k); 
-	int GetValue(int k);
-	void Add(int k, int v); 
-	std::map<int,int> maps;
-};
-*/
 class MapIntPrim {
 public:
 	MapIntPrim();
@@ -224,3 +203,33 @@ private:
 protected:
 };
 
+LiteGameObject* ToLiteGameObject(UObject* g, bool includeHPath);
+HPathVariant* ListContains(std::list<HPathVariant*>* list, HPathVariant item);
+UActorComponent* GetComponent(UObject* Actor, FString componentName);
+HPathVariant* GetStructFieldValue(StructHolder* sh, FString fieldName);
+HPathVariant* GetObjectFieldValue(UObject* obj, FString fieldName);
+
+HPathVariant* GetPropertyValue(FProperty* prop, UObject* obj, bool& retFlag);
+
+
+template <typename KeyType, typename ValueType> 
+void* processMapPropertyIntoMapPrim(FMapProperty* mapProperty, UObject* obj);
+ 
+template <typename ValueType>
+void* processMapPropertyIntoMapPrimStringKey(FMapProperty* mapProperty, UObject* obj);
+
+template <typename KeyType>
+void* processMapPropertyIntoMapPrimStringValue(FMapProperty* mapProperty, UObject* obj);
+#if PLATFORM_WINDOWS 
+template void* processMapPropertyIntoMapPrim<int, int>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrim<int, bool>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrim<int, double>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrim<double, int>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrim<double, double>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrim<double, bool>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrimStringKey<int>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrimStringKey<double>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrimStringKey<bool>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrimStringValue<int>(FMapProperty* mapProperty, UObject* obj);
+template void* processMapPropertyIntoMapPrimStringValue<double>(FMapProperty* mapProperty, UObject* obj);
+#endif

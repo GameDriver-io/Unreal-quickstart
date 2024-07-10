@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #if ENGINE_MAJOR_VERSION == 4
@@ -9,21 +10,18 @@
 #include "Framework/Application/SlateApplication.h"
 #include "ISCSEditorUICustomization.h"
 #include "DetailsTool.h"
-//#include "SlateBasics.h"
 #include "SSCSEditor.h"
 #include "Widgets/Input/SSearchBox.h"
+#include "Widgets/Text/STextBlock.h"
 #include "Misc/TextFilter.h"
 
-//#include "EditorStyleSet.h"
-//#include "LevelEditor.h"
+#include <Editor/DetailsCommon.h>
 
 namespace HPathUtility {
 	FORCEINLINE static size_t Strcpy(char* Destination, const char* Source, size_t Length);
 	FORCEINLINE static size_t Strlen(const char* Source);
 }
 
-
- enum RightMenuContexts{COMPONENT,METHOD,FIELD};
 class DetailsToolPanel : public SCompoundWidget
 {
 
@@ -32,7 +30,6 @@ class DetailsToolPanel : public SCompoundWidget
 
 	SLATE_ARGUMENT(TWeakPtr<class DetailsTool>, Tool)
 
-		//	SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
 		SLATE_END_ARGS()
 
 		void Construct(const FArguments& InArgs);
@@ -58,8 +55,8 @@ public:
 	void DetailCommand2();
 	void MapCommands();
 	void ClearLists();
-	bool isTypeValid(FProperty* p);
-	FString GetCSharpType(FProperty* p);
+	static bool isTypeValid(FProperty* p);
+	static FString GetCSharpType(FProperty* p);
 	void FilterFields();
 	void FilterMethods();
 	void RefreshExtraDetailsPanel(bool comp=false);
@@ -74,7 +71,6 @@ protected:
 	UFunction* lockedMethod;
 	TWeakPtr<DetailsTool> tool;
 	TSharedPtr<IDetailsView> DetailsView;
-	TSharedPtr<SBox> ComponentsBox;
 	TSharedPtr<class SSCSEditor> SCSEditor;
 	TArray<TSharedPtr<FString>>  Components;
 	TArray <UActorComponent*> RawComponents;
@@ -93,6 +89,7 @@ protected:
 	//TSharedPtr<TTextFilter<const FString&>> SearchTextFilter;
 	FString SearchedText;
 	FString MethodSearchedText;
+	FString WidgetSearchedText;
 	//bool bRefreshPropertyFilter;
 
 	/* The actual UI list */
@@ -103,6 +100,9 @@ protected:
 	/** Property viewing widget */
 	TSharedPtr<IDetailsView> PropertyView;
 
+	TSharedPtr<SBorder> hideableBorder;
+
+	TSharedPtr<SBorder> errorMessage;
 	/** Customize how the component tree looks like */
 	TSharedPtr<class ISCSEditorUICustomization> SCSEditorUICustomization;
 

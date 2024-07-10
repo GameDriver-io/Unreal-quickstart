@@ -223,12 +223,16 @@
 #  define BOOST_NO_CXX11_HDR_CODECVT
 #endif
 
+
+//NOTE: Make it compile for PS5
+#if !PLATFORM_PS5
 #if (_MSVC_LANG > 201700) && !defined(BOOST_NO_CXX11_HDR_CODECVT)
 //
 // <codecvt> is deprected as of C++17, and by default MSVC emits hard errors
 // if you try to use it, so mark it as unavailable:
 //
 #  define BOOST_NO_CXX11_HDR_CODECVT
+#endif
 #endif
 
 #if defined(_CPPLIB_VER) && (_CPPLIB_VER >= 650)

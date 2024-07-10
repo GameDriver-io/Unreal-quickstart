@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define HPATHDEBUGGER_ExampleSettings_generated_h
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_SPARSE_DATA
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_RPC_WRAPPERS
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_RPC_WRAPPERS_NO_PURE_DECLS
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_INCLASS_NO_PURE_DECLS \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_SPARSE_DATA
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_RPC_WRAPPERS
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_RPC_WRAPPERS_NO_PURE_DECLS
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUExampleSettings(); \
 	friend struct Z_Construct_UClass_UExampleSettings_Statics; \
@@ -27,7 +27,7 @@ public: \
 
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_INCLASS \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_INCLASS \
 private: \
 	static void StaticRegisterNativesUExampleSettings(); \
 	friend struct Z_Construct_UClass_UExampleSettings_Statics; \
@@ -38,7 +38,7 @@ public: \
 
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_STANDARD_CONSTRUCTORS \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UExampleSettings(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UExampleSettings) \
@@ -51,7 +51,7 @@ private: \
 public:
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_ENHANCED_CONSTRUCTORS \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UExampleSettings(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -64,31 +64,31 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UExampleSettings)
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_PRIVATE_PROPERTY_OFFSET \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__bTest() { return STRUCT_OFFSET(UExampleSettings, bTest); }
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_5_PROLOG
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_GENERATED_BODY_LEGACY \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_6_PROLOG
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_SPARSE_DATA \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_RPC_WRAPPERS \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_INCLASS \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_STANDARD_CONSTRUCTORS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_PRIVATE_PROPERTY_OFFSET \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_SPARSE_DATA \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_RPC_WRAPPERS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_INCLASS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_GENERATED_BODY \
+#define HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_SPARSE_DATA \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_RPC_WRAPPERS_NO_PURE_DECLS \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_INCLASS_NO_PURE_DECLS \
-	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_8_ENHANCED_CONSTRUCTORS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_PRIVATE_PROPERTY_OFFSET \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_SPARSE_DATA \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_RPC_WRAPPERS_NO_PURE_DECLS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_INCLASS_NO_PURE_DECLS \
+	HostProject_Plugins_GameDriver_Source_Editor_ExampleSettings_h_9_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

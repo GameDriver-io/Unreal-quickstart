@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright GameDriver, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -7,13 +7,19 @@
 #include "InputAction.h"
 #include <printInterface.h>
 #include "Runtime/Launch/Resources/Version.h"
-//class RecorderToolPanel;
+
+#include "IXRTrackingSystem.h" 
+#include "UnrealClient.h"
+#include "Engine/GameViewportClient.h"
+
 class FSlateApplication;
 class FSlateUser;
+class FViewPort;
 struct FInputEvent;
 struct FAnalogInputEvent;
 struct FKeyEvent;
 struct FPointerEvent;
+
 
 
 class ControllerState {
@@ -121,6 +127,8 @@ public:
  */
 class FGDIOInput : public IInputProcessor, public TSharedFromThis<FGDIOInput>
 {
+
+
 public:
 	GAMEDRIVER_API FGDIOInput(IprintInterface*);
 
@@ -162,7 +170,7 @@ public:
 
 	FString GetGoodValue(TArray<FString>* possibleKeys, EInputActionValueType type);
 
-
+	FString GetPrintableVRDirection(FQuat rawQuat, FXRMotionControllerData* q,bool transform);//used to handle VR offsets from device in some unreal versions. 
 protected:
 	UWorld *World;
 	bool everoutputVR = false;

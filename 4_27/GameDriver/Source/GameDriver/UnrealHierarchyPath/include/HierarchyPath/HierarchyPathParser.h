@@ -1,6 +1,9 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "Common.h"
 #include "HNode.h"
+#include "XPathParserExceptions.h"
+
 class HierarchyPathParser
 {
 public:

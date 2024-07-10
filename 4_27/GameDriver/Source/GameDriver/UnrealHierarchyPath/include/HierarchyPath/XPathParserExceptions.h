@@ -1,6 +1,7 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "Common.h"
-
+#include "Containers/UnrealString.h"
 /*
 // trim from start (in place)
 static inline void ltrim(std::wstring& s) {

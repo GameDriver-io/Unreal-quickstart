@@ -1,27 +1,20 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Modules/ModuleInterface.h"
-//#include "Engine.h"
+
 #if WITH_EDITOR
-//#include "UnrealEd.h"
 #include "Engine/Selection.h"
 #endif
 
-//#include "Engine.h"
-//#include "SlateBasics.h"
-//#include "SlateExtras.h"
-//#include "Internationalization.h"
-//#include "MultiBoxExtender.h"
 #include "Editor/LevelEditor/Public/LevelEditor.h"
-//#include "Editor/PropertyEditor/Public/PropertyEditing.h"
+
 #include "IAssetTypeActions.h"
 
 #include "Modules/ModuleManager.h"
 #include "../IExampleModuleInterface.h"
 
-
-//#include "ModuleManager.h"
 
 
 class HPathDebugger :  public IExampleModuleInterface

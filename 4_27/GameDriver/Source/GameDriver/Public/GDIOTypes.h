@@ -1,6 +1,7 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <msgpack.hpp>
-//#include <GameDriver/UnrealHierarchyPath/src/HierarchyPathHelper.cpp>
+
 
 class Color {
 public:

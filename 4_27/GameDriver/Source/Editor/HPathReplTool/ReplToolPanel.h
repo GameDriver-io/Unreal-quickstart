@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #if ENGINE_MAJOR_VERSION == 4
@@ -8,7 +9,6 @@
 #endif
 #include "Framework/Application/SlateApplication.h"
 #include "ReplTool.h"
-//#include "SlateBasics.h"
 #include "../../GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h"
 
 #include <GameDriver/UnrealHierarchyPath/include/HierarchyPath/XPathParserExceptions.h>
@@ -41,7 +41,7 @@ public:
 	FText GetText() const;
 	FString getHighlightText(FString val);
 	FReply Reset();
-	//void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
+	
 	void XPathExceptionToGUI(XPathParserException e);
 	//color
 	const FSlateBrush* GetErrorIcon() const;
@@ -55,8 +55,7 @@ protected:
 	HierarchyPathVM* HPVM;
 	FText enteredText;
 	TWeakPtr<ReplTool> tool;
-	//TSharedPtr<SRichTextBlock> resultPath;
-	//TSharedPtr<STextBlock> errorPath;
+	
 	TSharedPtr<STextBlock> outputCount;
 	/* The list of strings */
 	TArray<TSharedPtr<FString>> ReturnedItems;

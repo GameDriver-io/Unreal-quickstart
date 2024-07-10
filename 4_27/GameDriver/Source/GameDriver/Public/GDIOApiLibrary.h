@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 
@@ -5,6 +6,8 @@
 
 #include "GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h"
 #include "Protocol/Requests.h"
+//#include "Engine/TimerHandle.h" // this worked iuntil I went to 5.1
+#include "TimerManager.h"
 
  class  UGDIOApi : public UObject {
 public:
@@ -174,7 +177,7 @@ public:
 	/// bool wasValid = false;
 	/// FVector pos = UGDIOApi::GetObjectPosition("//ThirdPersonCharacter_167", CoordinateConversion::Local, wasValid);
 	///	if (wasValid) {
-	///	UE_LOG(LogTemp, Display, TEXT("%f %f %f"), pos.X, pos.Y, pos.Z);
+	///	UE_LOG(LogGameDriver, Display, TEXT("%f %f %f"), pos.X, pos.Y, pos.Z);
 	///}</code></example>
 	GAMEDRIVER_API static FVector GetObjectPosition(FString HPath, CoordinateConversion coordinateSpace, bool& valid);
 	/// <summary>
@@ -189,7 +192,7 @@ public:
 	/// //UObject* object is defined and assigned somewhere....
 	/// FVector pos = UGDIOApi::GetObjectPosition(object, CoordinateConversion::Local, wasValid);
 	///	if (wasValid) {
-	///	UE_LOG(LogTemp, Display, TEXT("%f %f %f"), pos.X, pos.Y, pos.Z);
+	///	UE_LOG(LogGameDriver, Display, TEXT("%f %f %f"), pos.X, pos.Y, pos.Z);
 	///}</code></example>
 	GAMEDRIVER_API static FVector GetObjectPosition(UObject* obj, CoordinateConversion coordinateSpace, bool& valid);
 

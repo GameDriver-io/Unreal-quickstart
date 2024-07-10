@@ -10,9 +10,13 @@ public class GDIOXRInput : ModuleRules
 {
 	public GDIOXRInput(ReadOnlyTargetRules Target) : base(Target)
 	{
-        CppStandard = CppStandardVersion.Cpp17;
-        PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
+        PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+        DefaultBuildSettings = BuildSettingsVersion.Latest;
+        //if (Target.Version.MajorVersion == 4)
+        {
+            CppStandard = CppStandardVersion.Cpp17;
+        }
         //bForceUnityBuild = false;
         //PCHUsage = ModuleRules.PCHUsageMode.None;
         //bEnableExceptions = true;

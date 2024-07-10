@@ -1,5 +1,22 @@
-# Changelog for GameDriver for Unity releases
+# Changelog for GameDriver for Unreal releases
 
+## 07-15-2024 Version 2024.2
+- Added support for Unreal 5.4
+- Added Slate Explorer Tool
+- Fixed Relative // paths
+- Added WebSocket configuration/reconnect
+- Added Gzip capability to messaging
+- Added Console Command api call
+- Added autoplay support to launch game
+- Added Selecting in editor when HPathDebugger selects 1 item
+- Added support for CommonUI Widgets
+- Fixed restart with changed port bug
+- Added a wildcard HPath option
+- Added support for PS5
+- Remove actors being deleted from result set
+- Adding a GameDriver logging category and configuration
+- Fixed issue with packing LiteGameObjects sometimes
+- Improved access to struct properties
 ## 05-01-2024 Version 2024.1
 - Added websockets for console support
 - Allow Gamedriver to make calls while game is in editor mode (not running)

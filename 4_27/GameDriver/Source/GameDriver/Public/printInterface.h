@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "CoreMinimal.h"
+#include "UObject/Interface.h"
 #include "printInterface.generated.h"
 
 UINTERFACE(MinimalAPI, Blueprintable)
@@ -21,6 +23,7 @@ public:
     GAMEDRIVER_API virtual bool GetFPS() { return false; };
     GAMEDRIVER_API virtual bool GetMouseMove() { return false; };
     GAMEDRIVER_API static UObject* GetAttachParentUObject(UObject* actor);
+    GAMEDRIVER_API static int GetIndexOfSimilarChildren(UObject* obj);
     GAMEDRIVER_API static TArray<FString> GetObjectTags(UObject* obj);
     GAMEDRIVER_API static FString GetHPath(UObject* obj, FString* CurrentItem);
     uint32 lastFrame;

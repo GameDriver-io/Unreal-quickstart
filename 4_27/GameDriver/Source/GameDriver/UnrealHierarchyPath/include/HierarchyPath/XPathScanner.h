@@ -1,6 +1,8 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "Common.h"
 #include "XPathParserExceptions.h"
+#include <list>
 class XPathScanner
 {
     String  xpathExpr;

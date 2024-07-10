@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <string>
 #include <time.h>

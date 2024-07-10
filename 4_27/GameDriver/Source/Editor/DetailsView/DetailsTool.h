@@ -1,3 +1,5 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
+
 #pragma once
 
 #include "../ExampleTabToolBase.h"

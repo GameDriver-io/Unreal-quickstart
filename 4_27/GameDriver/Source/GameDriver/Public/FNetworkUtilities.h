@@ -1,11 +1,10 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "Containers/Queue.h"
 #include "HAL/CriticalSection.h"
 #include "Sockets.h"
 #include "Engine/EngineBaseTypes.h"
-//#include "INetworkFileSystemModule.h"
-//#include "FNetworkUtilities.generated.h"
 
 
 enum class ECommandId : uint8

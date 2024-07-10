@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #if ENGINE_MAJOR_VERSION == 4
@@ -31,7 +32,6 @@ class RecorderToolPanel : public SCompoundWidget, public IprintInterface
 
 	SLATE_ARGUMENT(TWeakPtr<class RecorderTool>, Tool)
 
-	//	SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
 	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);
@@ -54,7 +54,6 @@ public:
 	FReply ClickObject();
 	void SetFPS(ECheckBoxState);
 	void SetMouseMove(ECheckBoxState);
-	//void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
 	FText GetRecordTooltip() const;
 	
 	//functions defined in interface
@@ -62,9 +61,7 @@ public:
 	 void AddWaitOutput(int time) override;
 	 bool GetFPS() override{ return useFPS; }
 	 bool GetMouseMove() override { return useMouseMove; }
-	 //static FString GetHPath(UObject* obj, FString* CurrentItem) override;
-	//static UObject* GetAttachParentUObject(UObject* actor);
-	//static TArray<FString> GetObjectTags(UObject* obj);
+	
 	TSharedRef<SWidget> MakeWidgetForOption(TSharedPtr<FString> InOption)
 	{
 		return SNew(STextBlock).Text(FText::FromString(*InOption));

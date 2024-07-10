@@ -1,3 +1,5 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
+
 #include "Widgets/Docking/SDockTab.h"
 #if ENGINE_MAJOR_VERSION == 4
 #include "Widgets/Docking/SDockableTab.h"

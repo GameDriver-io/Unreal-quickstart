@@ -1,8 +1,8 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 
 #include "Framework/Application/SlateApplication.h"
-//#include "SlateBasics.h"
 #include "Widgets/SCanvas.h"
 #include "Widgets/Text/STextBlock.h"
 #include "Widgets/Layout/SBox.h"

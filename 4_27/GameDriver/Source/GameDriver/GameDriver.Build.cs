@@ -11,14 +11,19 @@ public class GameDriver : ModuleRules
 	public GameDriver(ReadOnlyTargetRules Target) : base(Target)
 	{
        // IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
-        CppStandard = CppStandardVersion.Cpp17;
+
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
         //PCHUsage = ModuleRules.PCHUsageMode.
-        // bForceUnityBuild = false;
-
-       
+       // bUseUnity = true;
+        DefaultBuildSettings = BuildSettingsVersion.Latest;
+       // if (Target.Version.MajorVersion == 4)
+        {
+            CppStandard = CppStandardVersion.Cpp17;
+           
+        }
         //bForceUnityBuild = false;
-         bEnableExceptions = true;
+        // IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_2;
+        bEnableExceptions = true;
         OptimizeCode = CodeOptimization.Never;
         PublicIncludePaths.AddRange(
 			new string[] {
@@ -37,10 +42,19 @@ public class GameDriver : ModuleRules
 			new string[]
 			{
 				"Core",
-				"Projects", "UMG","InputDevice","GDIOXRInput","HeadMountedDisplay","WebSockets"
-			}
+				"Projects", "UMG","InputDevice","GDIOXRInput","HeadMountedDisplay","WebSockets",            "Networking"
+            }
             );
-        if (Target.Version.MajorVersion == 5 && Target.Version.MinorVersion >= 3)
+        if (Target.Version.MajorVersion == 5)
+        {
+            PublicDependencyModuleNames.AddRange(
+                       new string[]
+                       {
+                "CommonUI"
+                       }
+                       );
+        }
+            if (Target.Version.MajorVersion == 5 && Target.Version.MinorVersion >= 3)
         {
             //IWYUSupport = IWYUSupport.Full;
             PublicDependencyModuleNames.AddRange(

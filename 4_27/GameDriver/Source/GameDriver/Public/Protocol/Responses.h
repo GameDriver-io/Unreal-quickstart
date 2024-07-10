@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <iostream>
 #include "time.h"
@@ -9,6 +10,7 @@
 
 #include "ProtocolMessage.h"
 #include "../GDIOTypes.h"
+#include <GameDriver.h>
 
 
 enum class HANDSHAKE_REASON_CODE : std::uint8_t

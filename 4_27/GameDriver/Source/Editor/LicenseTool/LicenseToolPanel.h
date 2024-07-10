@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #if ENGINE_MAJOR_VERSION == 4
@@ -31,7 +32,6 @@ class LicenseToolPanel : public SCompoundWidget, public IprintInterface
 
 	SLATE_ARGUMENT(TWeakPtr<class LicenseTool>, Tool)
 
-	//	SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
 	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);

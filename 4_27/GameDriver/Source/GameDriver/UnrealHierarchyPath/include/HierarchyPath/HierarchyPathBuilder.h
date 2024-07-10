@@ -1,7 +1,9 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "IXPathBuilder.h"
+//#if ENGINE_MAJOR_VERSION >=5
 #include "HNode.h"
-
+//#endif
 template <typename Node>
 class HierarchyPathBuilder :
     public IXPathBuilder<Node>
@@ -18,7 +20,6 @@ class HierarchyPathBuilder :
         Node* Predicate(Node* node, Node* condition, bool reverseStep);
         Node* Variable(String prefix, String name);
         Node* Function(String prefix, String name, std::list<Node*> args);
-        
 };
 
 

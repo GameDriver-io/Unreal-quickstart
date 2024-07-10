@@ -1,8 +1,6 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
-//#include "AGDIO_OverlapHit.h"
-//#include "CoreMinimal.h"
-//#include "CoreUObject.h"
 class AGDIO_OverlapHit;
 #include "UHitListener.generated.h"
 

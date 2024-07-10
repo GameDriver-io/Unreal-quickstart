@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #if ENGINE_MAJOR_VERSION == 4
@@ -26,7 +27,6 @@ class TabToolPanel : public SCompoundWidget
 
 	SLATE_ARGUMENT(TWeakPtr<class TabTool>, Tool)
 
-	//	SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
 	SLATE_END_ARGS()
 
 	void Construct(const FArguments& InArgs);
@@ -50,10 +50,10 @@ public:
 	FString getHighlightText(FString val);
 
 	void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
-	/* Adds a new textbox with the string to the list */
+
 	TSharedRef<ITableRow> OnGenerateRowForList(TSharedPtr<FString> Item, const TSharedRef<STableViewBase>& OwnerTable);
 	TSharedRef<ITableRow> OnGenerateRowForStack(TSharedPtr<FString> Item, const TSharedRef<STableViewBase>& OwnerTable);
-	//color
+
 	FSlateColor GetHPathColor() const;
 
 	void RawReset();

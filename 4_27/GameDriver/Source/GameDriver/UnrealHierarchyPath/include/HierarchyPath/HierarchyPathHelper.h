@@ -1,13 +1,17 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include <UObject/Object.h>
 #include <string>
 #if WITH_EDITOR
 #include "Editor/EditorEngine.h"
 #include "Engine/UserInterfaceSettings.h"
-//#include "../../HPathDebugger/Public/HPathDebugger.h"
 #endif
 
-
+#include "Engine/EngineBaseTypes.h"
+#include "Common.h"
+#include "GameFramework/TouchInterface.h"
+#include "UObject/UnrealType.h"
+#include <GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h>
 namespace GameDriver {
 	GAMEDRIVER_API const FKey* getEKeyForIntValue(int val);
 	GAMEDRIVER_API const int getEKeyIntValue(FKey val);
@@ -15,13 +19,20 @@ namespace GameDriver {
 
 #include <GDIOTypes.h>
 class StructHolder;
-class MapPrimPrim;
+//class MapPrimPrim;
+class UWidgetTree;
+class UPanelWidget;
+class UWidget;
+class UDynamicEntryBoxBase;
+class UActorComponent;
+struct FMinimalViewInfo;
+
 bool ConvertWorldLocationToScreenLocation(APlayerController* PlayerController, FVector& tempV, FVector2D& outputSpot);
 bool UObjectGetPosition(UObject* obj, FVector& location);
 TArray<UActorComponent*>* GetAllComponents(UObject* Actor);
 bool PlayerController_SetMouseState(APlayerController* PlayerController, int buttonId, EInputEvent Event, FVector2D* newLocationRaw);
 bool PlayerController_SetTouchState(APlayerController* PlayerController, int fingerId, ETouchType::Type Event, FVector2D* Location);
-LiteGameObject* ToLiteGameObject(UObject* g, bool includeHPath);
+
 bool ProjectWorldToCamera(APlayerController const* Player, const FVector& WorldPosition, FVector2D& ScreenPosition, bool bPlayerViewportRelative, FMinimalViewInfo* viewInfo);
 bool UObjectGetViewportPosition(UObject* obj, FVector& loc);
 bool ConvertWorldLocationToViewportLocation(APlayerController* PlayerController, UObject* cam, FVector& inputLoc, FVector2D& outputSpot);
@@ -51,11 +62,20 @@ bool SetQuaternionValueForField(UObject* obj, FString fieldToFind, FQuat* value)
 bool SetQuaternionValueForProperty(FProperty* prop, void* obj, FQuat* value);
 bool SetTransformValueForField(UObject* obj, FString fieldToFind, FTransform* value);
 bool SetTransformValueForProperty(FProperty* prop, void* obj, FTransform* value);
-bool setArrayElement(FProperty* Property, FArrayProperty* arrayProperty, UObject* obj, int index, void* value);
-bool setMapElement(FProperty* Property, FMapProperty* mapProperty, UObject* obj, int index, void* value);
-template <typename KeyType, typename ValueType>
-void* processMapPropertyIntoMapPrim(FMapProperty* mapProperty, UObject* obj);
-template < typename ValueType>
-void* processMapPropertyIntoMapPrimStringKey(FMapProperty* mapProperty, UObject* obj);
-template <typename KeyType>
-void* processMapPropertyIntoMapPrimStringValue(FMapProperty* mapProperty, UObject* obj);
+bool setArrayElement(FArrayProperty* arrayProperty, UObject* obj, int index, void* value);
+bool setMapElement(FMapProperty* mapProperty, UObject* obj, int index, void* value);
+
+GAMEDRIVER_API TArray<UObject*>* GetAllChildUObjects(UObject* Actor, bool onlyFirstLevel = false);
+void GetUserWidgetChildren(UObject* Actor, TArray<UObject*>* actors,bool onlyFirst);
+TArray< FTouchInputControl>* GetAllChildTouchControls(UObject* Actor);
+TArray<UObject*>* GetAllUObjects(UWorld* VMWorld);
+GAMEDRIVER_API  TArray<UObject*>* GetAllWidgets(UWorld* VMWorld);
+UObject* GetAttachParentUObject(UObject* actor);
+bool UObject_GetRotation(UObject* obj, FQuat& rot);
+FString GetHPath(UObject* obj, FString* CurrentItem);
+TArray<FString> GetObjectTags(UObject* obj);
+void AddWidgetParent(UWidgetTree* currentActor, TArray<UObject*>* actors);
+void GetPanelWidgetChildren(UPanelWidget* Actor, TArray<UObject*>* actors, bool onlyfirst);
+void GetWidgetChildren(UWidget* Actor, TArray<UObject*>* actors,bool onlyfirst);
+void GetDynamicWidgetChildren(UDynamicEntryBoxBase* panelWidget, TArray<UObject*>* actors, bool onlyFirst);
+void GetRecursivelyAttachedActors(AActor* Actor, TArray< AActor* >& OutActors);

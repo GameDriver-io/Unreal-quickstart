@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 #include "GDIOAgent.h"
 #include "Protocol/ProtocolMessage.h"
@@ -41,5 +42,7 @@ namespace MessageHandlers
 	bool HandleBadLicense(GDIOAgent* agent, ProtocolMessage pm);
 	bool StartRecording(GDIOAgent* agent, ProtocolMessage pm);
 	bool StopRecording(GDIOAgent* agent, ProtocolMessage pm);
+	bool ConsoleCommand(GDIOAgent* agent, ProtocolMessage pm);
+	bool AutoplayCommand(GDIOAgent* agent, ProtocolMessage pm);
 }
 

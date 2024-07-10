@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define GAMEDRIVER_printInterface_generated_h
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_SPARSE_DATA
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_RPC_WRAPPERS
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_RPC_WRAPPERS_NO_PURE_DECLS
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_STANDARD_CONSTRUCTORS \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_SPARSE_DATA
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_RPC_WRAPPERS
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	GAMEDRIVER_API UprintInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UprintInterface) \
@@ -29,7 +29,7 @@ private: \
 public:
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_ENHANCED_CONSTRUCTORS \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	GAMEDRIVER_API UprintInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -42,7 +42,7 @@ public: \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UprintInterface)
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_GENERATED_UINTERFACE_BODY() \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUprintInterface(); \
 	friend struct Z_Construct_UClass_UprintInterface_Statics; \
@@ -51,22 +51,22 @@ public: \
 	DECLARE_SERIALIZER(UprintInterface)
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_GENERATED_BODY_LEGACY \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_GENERATED_BODY_LEGACY \
 		PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_GENERATED_UINTERFACE_BODY() \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_STANDARD_CONSTRUCTORS \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_GENERATED_UINTERFACE_BODY() \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_STANDARD_CONSTRUCTORS \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_GENERATED_BODY \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_GENERATED_UINTERFACE_BODY() \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_ENHANCED_CONSTRUCTORS \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_GENERATED_UINTERFACE_BODY() \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~IprintInterface() {} \
 public: \
@@ -75,7 +75,7 @@ public: \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_INCLASS_IINTERFACE \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_INCLASS_IINTERFACE \
 protected: \
 	virtual ~IprintInterface() {} \
 public: \
@@ -84,23 +84,23 @@ public: \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_7_PROLOG
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_15_GENERATED_BODY_LEGACY \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_9_PROLOG
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_SPARSE_DATA \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_RPC_WRAPPERS \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_INCLASS_IINTERFACE \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_SPARSE_DATA \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_RPC_WRAPPERS \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_15_GENERATED_BODY \
+#define HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_SPARSE_DATA \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_RPC_WRAPPERS_NO_PURE_DECLS \
-	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_10_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_SPARSE_DATA \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	HostProject_Plugins_GameDriver_Source_GameDriver_Public_printInterface_h_12_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -1,8 +1,9 @@
-## 2024.05 Release Notes
+## 2024.07 Release Notes
 
-- Added Websocket support
-- Allow GameDriver to work while Unreal Game is paused
-- Allow GameDriver usage while game is not running (in editor). 
+- Added Unreal 5.4 support
+- Added Slate Explorer editor tool to identify User Interface elements
+- Better support for Slate including Common UI widgets.
+- Added PS5 support (you have to be a registered Sony partner to get access to that build - ask us)
 
 ## Concept
 

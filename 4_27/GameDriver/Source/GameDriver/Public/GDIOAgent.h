@@ -1,5 +1,6 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
-//#include <GameDriver/UnrealHierarchyPath/include/HierarchyPath/HierarchyPathVM.h>
+
 #include <TCPServer.h>
 #include "Protocol/ProtocolMessage.h"
 #include "ChannelQueue.h"
@@ -18,6 +19,7 @@ class GDIOAgent {
 public:
 	GDIOAgent();
 	GDIOAgent(ChannelQueue<ProtocolMessage*> *channel, UWorld* W);
+	void clearTrackedItems();
 	~GDIOAgent();
 
 	double GetLastFPS();

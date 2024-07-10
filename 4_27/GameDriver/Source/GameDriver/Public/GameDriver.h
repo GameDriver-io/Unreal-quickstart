@@ -1,18 +1,17 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright GameDriver, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "Modules/ModuleManager.h"
-//#include "TCPServer.h"
 
 //THIRD_PARTY_INCLUDES_START
-#include "../../ThirdParty/msgpack.hpp"
 #include <GDIOAgent.h>
 #include "ChannelQueue.h"
 #include "Protocol/ProtocolMessage.h"
 #include "Engine/World.h"
+#include "Log.h"
 
-//extern struct guiMemory;
+
 
 #if PLATFORM_ANDROID || PLATFORM_IOS || PLATFORM_MAC || PLATFORM_SWITCH
 #define CONVERT_STRING(X,Y) std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> conv; Y = conv.to_bytes(X);
@@ -40,10 +39,13 @@ public:
 	static ChannelQueue<ProtocolMessage*> InMessageQueue;
 	static ChannelQueue<ProtocolMessage*> OutMessageQueue;
 	GDIOAgent* getAgent();
-	//virtual void BeginPlay() override;
+	TSharedPtr<IXRTrackingSystem, ESPMode::ThreadSafe> oldXR;
+	GAMEDRIVER_API static bool traceLogging;
+	GAMEDRIVER_API static int websocketRetryCount;
+	GAMEDRIVER_API static int websocketRetryTime;
 private:
-	/** Handle to the test dll we will load */
-	void*	OpenEXRdll;
+
+	bool hasEverBegun = false;
 	FTCPServer* SocketListener = NULL;
 	FDelegateHandle OnWorldPostInitializationHandle;
 	FDelegateHandle OnWorldCleanupHandle;

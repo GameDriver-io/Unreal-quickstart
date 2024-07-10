@@ -1,5 +1,6 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
-
+#include "Common.h"
 
 enum class Operation
 {
@@ -23,32 +24,32 @@ static String Operation_ToString(Operation op)
     switch (op)
     {
     case Operation::Exit:
-        return TEXT("Exit");
+        return __TEXT("Exit");
     case Operation::EvaluateNode:
-        return TEXT("EvaluateNode");
+        return __TEXT("EvaluateNode");
     case      Operation::EvaluateOperator:
-        return TEXT("EvaluateOperator");
+        return __TEXT("EvaluateOperator");
     case          Operation::EvaluateLeftOp:
-        return TEXT("EvaluateLeftOp");
+        return __TEXT("EvaluateLeftOp");
     case         Operation::EvaluateRightOp:
-        return TEXT("EvaluateRightOp");
+        return __TEXT("EvaluateRightOp");
     case     Operation::EvaluatePredicateContext:
-        return TEXT("EvaluatePredicateContext");
+        return __TEXT("EvaluatePredicateContext");
     case        Operation::EvaluatePredicateCondition:
-        return TEXT("EvaluatePredicateCondition");
+        return __TEXT("EvaluatePredicateCondition");
     case       Operation::ProcessFunction:
-        return TEXT("ProcessFunction");
+        return __TEXT("ProcessFunction");
     case        Operation::EvaluateFunctionContext:
-        return TEXT("EvaluateFunctionContext");
+        return __TEXT("EvaluateFunctionContext");
     case        Operation::EvaluateFunctionCondition:
-        return TEXT("EvaluateFunctionCondition");
+        return __TEXT("EvaluateFunctionCondition");
     case        Operation::RetrieveResult:
-        return TEXT("RetrieveResult");
+        return __TEXT("RetrieveResult");
     case        Operation::StoreResult:
-        return TEXT("StoreResult");
+        return __TEXT("StoreResult");
     case         Operation::Break:
-        return TEXT("Break");
+        return __TEXT("Break");
     default:
-        return TEXT("Invalid Operator");
+        return __TEXT("Invalid Operator");
     }
 };

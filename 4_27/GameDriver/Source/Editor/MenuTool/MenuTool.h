@@ -1,3 +1,4 @@
+// Copyright GameDriver, Inc. All Rights Reserved.
 #pragma once
 
 #include "../IExampleModuleInterface.h"
@@ -20,10 +21,13 @@ protected:
 
 	void MapCommands();
 
+	void HPathCommand(FString* param);
+
 	//************************
 	// UI Command functions
 	void MenuCommand1();
 	void MenuCommand2();
+	void MenuCommand3();
 	void RegisterMenuExtensions();
 
 	TSharedRef<FExtender> OnExtendLevelEditorMenu(const TSharedRef<FUICommandList> CommandList, TArray<AActor*> SelectedActors);

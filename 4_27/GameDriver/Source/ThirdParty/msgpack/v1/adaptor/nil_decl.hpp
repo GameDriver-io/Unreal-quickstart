@@ -26,7 +26,7 @@ struct nil_t;
 
 #if !defined(MSGPACK_DISABLE_LEGACY_NIL)
 
-//typedef nil_t nil;
+typedef nil_t nil;
 
 #endif // !defined(MSGPACK_DISABLE_LEGACY_NIL)
 
