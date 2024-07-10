@@ -1,0 +1,52 @@
+# Changelog for GameDriver for Unreal releases
+
+## 07-15-2024 Version 2024.2
+- Added support for Unreal 5.4
+- Added Slate Explorer Tool
+- Fixed Relative // paths
+- Added WebSocket configuration/reconnect
+- Added Gzip capability to messaging
+- Added Console Command api call
+- Added autoplay support to launch game
+- Added Selecting in editor when HPathDebugger selects 1 item
+- Added support for CommonUI Widgets
+- Fixed restart with changed port bug
+- Added a wildcard HPath option
+- Added support for PS5
+- Remove actors being deleted from result set
+- Adding a GameDriver logging category and configuration
+- Fixed issue with packing LiteGameObjects sometimes
+- Improved access to struct properties
+## 05-01-2024 Version 2024.1
+- Added websockets for console support
+- Allow Gamedriver to make calls while game is in editor mode (not running)
+- Added TMap support for primary types. (int/float/string keys)   
+- Improved in-editor license display
+- Support testing while Unreal engine is paused
+- Miscelaneous bug fixes and stability improvements. 
+## 03-13-2024 Version 2024.01
+- *Added blueprint Api* for Gamedriver 
+ - Simulate Touch in blueprints
+ - Use HierarchyPath to access objects
+- Added a C++ APi, for those using Unreal's test framework in C++.
+- Added support for USceneComponent with FindLookAtRotation()
+- Added GetObjectPosition support on components. 
+- Added Node Locking functionality and Licence Panel in editor.
+- Added the ability to access user defined struct variables
+- Added the ability get and set TArray fields.
+- Added the ability read TSet fields. 
+- Added the ability read TMap<int,int> as a Dictionary. Also works for Enums. 
+- Added Vector2D, Quat and Transform support to SetFieldValue. 
+- Refactored recorder for improved performance
+- Better implementation of analog events in enhanced mode. 
+- bug fixes related to unique-Ptr handling
+- bug fix for handling inputFloat
+- bug fix for editor tools getting component hpath and method
+- Fixed Int64 values being serialized/deserialized 
+- Fixed waitforobjectvalue on mac
+- Fixed Tap on mobile UI elements.
+- Fixed GetObjectFieldValue() not resolving Color field
+- fixes to editor tools REPL tool
+- fixed touch offset in windowed editor mode.
+- Various compilation fixes for mobile. 
+- Updated docs
