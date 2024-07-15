@@ -7,6 +7,8 @@
 #include <iostream>
 #include "time.h"
 #include <msgpack.hpp>
+//#include <Rpc.h>
+
 
 
 
@@ -110,13 +112,13 @@ public:
     float Scroll_Y;
     std::string HierarchyPath = "";
     std::string CameraHierarchyPath = "";
-    //int[] modifiers.
+    std::list<int> Modifiers = std::list<int>();
 
     std::string* GetName() override {
         return new std::string("ClickRequest");
 
     }
-    MSGPACK_DEFINE_MAP(IsDoubleClick, FrameCount, MouseButtonId,X,Y,Scroll_X,Scroll_Y, HierarchyPath,CameraHierarchyPath);
+    MSGPACK_DEFINE_MAP(IsDoubleClick, FrameCount, MouseButtonId,X,Y,Scroll_X,Scroll_Y, HierarchyPath,CameraHierarchyPath,Modifiers);
 };
 
 class MouseMoveRequest : public IGDIOMessage

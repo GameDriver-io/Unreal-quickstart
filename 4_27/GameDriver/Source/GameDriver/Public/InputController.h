@@ -22,7 +22,7 @@ class InternalState
 {
 public:
 	InternalState() {};
-	InternalState(FKey key, int64 frames, KeyTypeEnum kt, FString dictKey, FVector2D* pos, FVector2D* dest = NULL, float depressedValue = 1.0f, bool gamePad = false, int t = 1, UWorld* W = NULL, GDIOAgent* A = NULL);
+	InternalState(FKey key, int64 frames, KeyTypeEnum kt, FString dictKey, FVector2D* pos, FVector2D* dest = NULL, float depressedValue = 1.0f, bool gamePad = false, int t = 1, UWorld* W = NULL, GDIOAgent* A = NULL, int del = 0);
 	int taps = 0;
 	float DepressedValue = 1.0f;
 	int64 Frames = 0;
@@ -43,6 +43,7 @@ public:
 	bool Update(int c = 0);
 	void resetDidFire() { didFireDown = false; };
 	bool finished = false;
+	int delay = 0;
 private:
 
 	bool didFireDown = false;
@@ -54,7 +55,7 @@ public:
 	InputController();
 	InputController(UWorld* W);
 	int GetActiveTouches();
-	void AddOrUpdate(FString strKey, int64 frames, KeyTypeEnum kt, FVector2D* position = NULL, FVector2D* destinationPosition = NULL, float depressedValue = 1.0f, bool gamePad = false, int t = 1);
+	void AddOrUpdate(FString strKey, int64 frames, KeyTypeEnum kt, FVector2D* position = NULL, FVector2D* destinationPosition = NULL, float depressedValue = 1.0f, bool gamePad = false, int t = 1, int delay =0);
 	void Update();
 	UWorld* World = NULL;
 	GDIOAgent* Agent = NULL;
