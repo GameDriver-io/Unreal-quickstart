@@ -7,5 +7,5 @@
 	<listening port="15505" />
 	<webSockets enabled="false" port="7071" url="127.0.0.1" retryTime="5" retryCount = "3"/>
 	<xrthresholds frames="1" />
-	<logging><trace enabled="true"/></logging>
+	<logging><trace enabled="false"/></logging>
 </config>
