@@ -17,6 +17,7 @@
 - Adding a GameDriver logging category and configuration
 - Fixed issue with packing LiteGameObjects sometimes
 - Improved access to struct properties
+- Improved ClickEx api methods.
 ## 05-01-2024 Version 2024.1
 - Added websockets for console support
 - Allow Gamedriver to make calls while game is in editor mode (not running)
