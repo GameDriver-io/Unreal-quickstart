@@ -3,7 +3,7 @@
 - Added Unreal 5.4 support
 - Added Slate Explorer editor tool to identify User Interface elements
 - Better support for Slate including Common UI widgets.
-- Added PS5 support (you have to be a registered Sony partner to get access to that build - ask us)
+- Added PlayStation 5 support (you need to be a registered PlayStation DevNet developer to gain access - [contact us](mailto:playstation@gamedriver.io))
 
 ## Concept
 
